@@ -28,4 +28,7 @@ class WebScraper:
         else:
             result = self.content.find(tag, class_ = class_name)
         return result
+    
+    def get_by_id(self, tag, id):
+        return self.content.find(tag, id = id)
 
