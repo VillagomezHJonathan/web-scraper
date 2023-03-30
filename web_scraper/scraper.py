@@ -12,4 +12,13 @@ class WebScraper:
     
     def get_full_html(self):
         return self.content.prettify()
+    
+    def get_by_tag(self, tag, is_find_many = False):
+        result = None
+        if (is_find_many):
+            result = self.content.find_all(tag)
+        else:
+            result = self.content.find(tag)
+
+        return result
 
