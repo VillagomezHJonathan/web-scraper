@@ -19,6 +19,13 @@ class WebScraper:
             result = self.content.find_all(tag)
         else:
             result = self.content.find(tag)
-
+        return result
+    
+    def get_by_class(self, tag, class_name, is_find_many = False):
+        result = None
+        if (is_find_many):
+            result = self.content.find_all(tag, class_ = class_name)
+        else:
+            result = self.content.find(tag, class_ = class_name)
         return result
 
