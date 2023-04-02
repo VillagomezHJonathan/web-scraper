@@ -5,30 +5,30 @@ class WebScraper:
     def __init__(self, url):
         self.url = url
         req = requests.get(self.url)
-        self.content = BeautifulSoup(req.content, 'html.parser')
+        self.soup = BeautifulSoup(req.content, 'html.parser')
 
     def get_url(self):
         return self.url
     
     def get_full_html(self):
-        return self.content.prettify()
+        return self.soup.prettify()
     
     def get_by_tag(self, tag, is_find_many = False):
         result = None
         if (is_find_many):
-            result = self.content.find_all(tag)
+            result = self.soup.find_all(tag).contents
         else:
-            result = self.content.find(tag)
+            result = self.soup.find(tag).contents
         return result
     
     def get_by_class(self, tag, class_name, is_find_many = False):
         result = None
         if (is_find_many):
-            result = self.content.find_all(tag, class_ = class_name)
+            result = self.soup.find_all(tag, class_ = class_name).contents
         else:
-            result = self.content.find(tag, class_ = class_name)
+            result = self.soup.find(tag, class_ = class_name).contents
         return result
     
     def get_by_id(self, tag, id):
-        return self.content.find(tag, id = id)
+        return self.soup.find(tag, id = id).contents
 

@@ -7,4 +7,6 @@ class Scrape(Resource):
     def post(self):
         req = request.get_json()
         scraper = WebScraper(req['src'])
-        content = scraper.get_by_tag(req['tag'], True)
+        content = scraper.get_by_tag(req['tag'])
+        print(content)
+        return req['tag']
