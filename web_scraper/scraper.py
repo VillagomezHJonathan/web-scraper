@@ -16,19 +16,19 @@ class WebScraper:
     def get_by_tag(self, tag, is_find_many = False):
         result = None
         if (is_find_many):
-            result = self.soup.find_all(tag).contents
+            result = self.soup.find_all(tag)
         else:
-            result = self.soup.find(tag).contents
+            result = self.soup.find(tag).get_text()
         return result
     
     def get_by_class(self, tag, class_name, is_find_many = False):
         result = None
         if (is_find_many):
-            result = self.soup.find_all(tag, class_ = class_name).contents
+            result = self.soup.find_all(tag, class_ = class_name)
         else:
-            result = self.soup.find(tag, class_ = class_name).contents
+            result = self.soup.find(tag, class_ = class_name).get_text()
         return result
     
     def get_by_id(self, tag, id):
-        return self.soup.find(tag, id = id).contents
+        return self.soup.find(tag, id = id).get_text()
 
