@@ -1,5 +1,6 @@
+import requests
 from bs4 import BeautifulSoup
 
-soup = BeautifulSoup('https://www.crummy.com/software/BeautifulSoup/bs4/doc/', 'html.parser')
-
+res = requests.get('https://www.crummy.com/software/BeautifulSoup/bs4/doc/')
+soup = BeautifulSoup(res.content, 'html.parser')
 print(soup.prettify())
