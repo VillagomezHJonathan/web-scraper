@@ -8,4 +8,4 @@ dict = {
   'equipment': '.exercise-info__term--equipment dd',
   'difficulty': '.exercise-info__term--difficulty .exercise-info__meter'
 }
-print(scrape.get_elements(dict['difficulty']))
+print(scrape.get_table(dict))

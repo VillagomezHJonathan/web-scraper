@@ -10,3 +10,11 @@ class WebScraper():
     def get_elements(self, selector):
         elems = self.soup.select(selector)
         return [e.get_text() for e in elems]
+    
+    def get_table(self, dict):
+        table_arr = []
+        for key, val in dict.items():
+            elems = self.get_elements(val)
+            [table_arr.append({key: e}) for e in elems]
+        
+        return table_arr
