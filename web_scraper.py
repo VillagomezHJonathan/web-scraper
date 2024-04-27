@@ -1,11 +1,11 @@
 import requests
 from bs4 import BeautifulSoup
 
-class WebScraper(BeautifulSoup):
+class WebScraper():
     def __init__(self, url):
         self.url = url
         res = requests.get(self.url)
-        self.soup = super(res.content, 'html.parser')
+        self.soup = BeautifulSoup(res.content, 'html.parser')
 
     def get_url(self):
         return self.url
