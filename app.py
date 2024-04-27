@@ -1,6 +1,8 @@
 from web_scraper import WebScraper
 
-scrape = WebScraper('https://www.crummy.com/software/BeautifulSoup/bs4/doc/#calling-a-tag-is-like-calling-find-all')
+scrape = WebScraper('https://www.acefitness.org/resources/everyone/exercise-library/equipment/dumbbells/')
 
-
-print(scrape.get_full_html())
+dict = {
+  'name': 'exercise-card__title',
+}
+print(scrape.get_by_class('.exercise-info__term--body-part dd', True))
