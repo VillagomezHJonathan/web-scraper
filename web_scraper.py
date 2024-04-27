@@ -7,5 +7,5 @@ class WebScraper():
         res = requests.get(self.url, headers=requests.utils.default_headers())
         self.soup = BeautifulSoup(res.content, 'html.parser')
 
-    def get_element(self, selector):
+    def get_elements(self, selector):
         return self.soup.select(selector)
