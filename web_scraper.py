@@ -14,7 +14,8 @@ class WebScraper():
     def get_table(self, dict):
         table_arr = []
         for key, val in dict.items():
-            elems = self.get_elements(val)
-            [table_arr.append({key: e}) for e in elems]
+            elem = self.get_elements(val)[0]
+            table_arr.append(elem)
+            
         
         return table_arr
