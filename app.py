@@ -1,9 +1,10 @@
 from web_scraper import WebScraper
 
-scrape = WebScraper('https://www.acefitness.org/resources/everyone/exercise-library/equipment/dumbbells/')
+scrape = WebScraper('https://www.jonweb.dev/')
 
-dict = {
-  'name': '.exercise-card__title',
-  'body_part': '.exercise-info__term--body-part dd'
+structure = {
+  'title': '.ProjectCard .title',
+  'techs': '.ProjectCard .techs p',
+  'desc': '.ProjectCard .desc'
 }
-print(scrape.get_table(dict))
+print(scrape.get_full_html())
