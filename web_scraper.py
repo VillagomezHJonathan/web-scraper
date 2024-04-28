@@ -7,40 +7,31 @@ from selenium.webdriver.common.by import By
 class WebScraper:
     def __init__(self, url):
         self.url = url
-        self.driver = webdriver.Chrome
-        self.driver.get(url)
-        self.data = self.driver.find_element(By.TAG_NAME, 'div')
-        self.driver.quit()
-
-    def get_data(self):
-      return self.data
-    
-# class WebScraper:
-#     def __init__(self, url):
-#         self.url = url
-#         res = requests.get(self.url, headers=requests.utils.default_headers())
-#         self.soup = BeautifulSoup(res.content, 'html.parser')
-
-#     def get_full_html(self):
-#         return self.soup.prettify()
-    
-#     def get_elements(self, selector):
-#         elems = self.soup.select(selector)
-#         return [e.get_text() for e in elems]
-    
-#     def get_table(self, dict):
-#         table_arr = []
-#         temp_dict = {}
-
-#         for key, val in dict.items():
-#             elems = self.get_elements(val)
-#             temp_dict[key] = elems
         
-#         for key, val in temp_dict.items():
-#             for j in range(len(temp_dict[key])):
-#                 if len(table_arr) < len(temp_dict[key]):
-#                     table_arr.append({key: temp_dict[key][j]})
-#                 else:
-#                     table_arr[j][key] = temp_dict[key][j]
+    def get_elements(self, selector):
+        driver = webdriver.Chrome()
+        driver.get(self.url)
+
+        data = driver.find_elements(By.CSS_SELECTOR, selector)
+        elems = [d.text for d in data]
+
+        driver.close()
+
+        return elems
+    
+    def get_table(self, dict):
+        table_arr = []
+        temp_dict = {}
+
+        for key, val in dict.items():
+            elems = self.get_elements(val)
+            temp_dict[key] = elems
+        
+        for key, val in temp_dict.items():
+            for j in range(len(temp_dict[key])):
+                if len(table_arr) < len(temp_dict[key]):
+                    table_arr.append({key: temp_dict[key][j]})
+                else:
+                    table_arr[j][key] = temp_dict[key][j]
                     
-#         return table_arr
+        return table_arr
