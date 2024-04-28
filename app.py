@@ -3,8 +3,8 @@ from web_scraper import WebScraper
 scrape = WebScraper('https://www.jonweb.dev/')
 
 structure = {
-  'title': '.ProjectCard .title',
-  'techs': '.ProjectCard .techs p',
-  'desc': '.ProjectCard .desc'
+  'title': '.title',
+  'techs': '.techs p',
+  'desc': '.desc'
 }
-print(scrape.get_elements(structure['title']))
+print(scrape.get_table('.ProjectCard', structure))

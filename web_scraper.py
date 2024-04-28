@@ -12,26 +12,26 @@ class WebScraper:
         driver = webdriver.Chrome()
         driver.get(self.url)
 
-        data = driver.find_elements(By.CSS_SELECTOR, selector)
-        elems = [d.text for d in data]
+        soup = BeautifulSoup(driver.page_source, 'html.parser')
+        elems = soup.select(selector)
 
         driver.close()
 
         return elems
     
-    def get_table(self, dict):
+    def get_table(self, parent_selector, structure):
+        parents = self.get_elements(parent_selector)
         table_arr = []
-        temp_dict = {}
 
-        for key, val in dict.items():
-            elems = self.get_elements(val)
-            temp_dict[key] = elems
+        for p in parents:
+            new_dict = {}
+            
+            for key, val in structure.items():
+                new_item = [i.get_text() for i in p.select(val)]
+                new_dict[key] = new_item
+            
+            table_arr.append(new_dict)
+
         
-        for key, val in temp_dict.items():
-            for j in range(len(temp_dict[key])):
-                if len(table_arr) < len(temp_dict[key]):
-                    table_arr.append({key: temp_dict[key][j]})
-                else:
-                    table_arr[j][key] = temp_dict[key][j]
-                    
+        
         return table_arr
