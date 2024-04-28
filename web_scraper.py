@@ -21,7 +21,7 @@ class WebScraper():
         
         for key, val in temp_dict.items():
             for j in range(len(temp_dict[key])):
-                if len(table_arr) <= len(temp_dict[key]):
+                if len(table_arr) < len(temp_dict[key]):
                     table_arr.append({key: temp_dict[key][j]})
                 else:
                     table_arr[j][key] = temp_dict[key][j]
