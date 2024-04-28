@@ -7,4 +7,4 @@ structure = {
   'techs': '.ProjectCard .techs p',
   'desc': '.ProjectCard .desc'
 }
-print(scrape.get_full_html())
+print(scrape.get_data())
