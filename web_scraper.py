@@ -13,13 +13,17 @@ class WebScraper():
     
     def get_table(self, dict):
         table_arr = []
-        temp_arr = []
+        temp_dict = {}
 
         for key, val in dict.items():
             elems = self.get_elements(val)
-            temp_arr.append(elems)
+            temp_dict[key] = elems
         
-        for i in range(len(temp_arr)):
-            table_arr.append(i)
-            
+        for key, val in temp_dict.items():
+            for j in range(len(temp_dict[key])):
+                if len(table_arr) <= len(temp_dict[key]):
+                    table_arr.append({key: temp_dict[key][j]})
+                else:
+                    table_arr[j][key] = temp_dict[key][j]
+                    
         return table_arr
