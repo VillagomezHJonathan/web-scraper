@@ -1,4 +1,3 @@
-import requests
 from bs4 import BeautifulSoup
 from selenium import webdriver
 from selenium.webdriver.common.by import By
@@ -33,7 +32,7 @@ class WebScraper:
                     new_dict[key] = new_item[0]
                 else:
                     new_dict[key] = new_item
-                    
+
             table_arr.append(new_dict)
 
         
