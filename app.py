@@ -5,6 +5,6 @@ scrape = WebScraper('https://www.jonweb.dev/')
 structure = {
   'title': '.title',
   'techs': '.techs p',
-  'desc': '.desc'
+  'desc': '.desc',
 }
 print(scrape.get_table('.ProjectCard', structure))
