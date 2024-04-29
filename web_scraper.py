@@ -28,7 +28,11 @@ class WebScraper:
             
             for key, val in structure.items():
                 new_item = [i.get_text() for i in p.select(val)]
-                new_dict[key] = new_item
+
+                if len(new_item) > 1:
+                    new_dict[key] = new_item[0]
+                else:
+                    new_dict[key] = new_item
             
             table_arr.append(new_dict)
 
