@@ -69,11 +69,13 @@ results = scrape.get_table('.ProjectCard', project_structure)
 
 print(results)
 # [
-#  {'title': 'Flixder', 
+#  {
+#   'title': 'Flixder', 
 #   'technologies': ['React', 'SCSS', 'Node.js', 'Express', 'MongoDB'], 
 #   'description': 'Dating application for movies, find new movies to watch!'
 #  }, 
-#  {'title': 'Fit Buddy', 
+#  {
+#   'title': 'Fit Buddy', 
 #   'technologies': ['Vue', 'SCSS'], 
 #   'description': 'An application used to set up your workout routine for the week!'
 #  }, 
