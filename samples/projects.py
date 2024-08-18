@@ -1,4 +1,4 @@
-from web_scraper import WebScraper
+from scraper.web_scraper import WebScraper
 
 scrape = WebScraper('https://www.jonweb.dev/')
 
