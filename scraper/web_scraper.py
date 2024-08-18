@@ -33,6 +33,4 @@ class WebScraper:
 
             table_arr.append(new_dict)
 
-        
-        
         return table_arr
