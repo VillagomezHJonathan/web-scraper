@@ -1,90 +1,64 @@
-<a name="readme-top"></a>
-
-[LinkedIn](https://www.linkedin.com/in/jonathanvillagomezhernandez/) |
-[Website](https://www.jonweb.dev/)
-
-<!-- PROJECT LOGO -->
-<br />
+<br/>
 <div align="center">
-  
-  <h1 align="center">Web Scraper</h3>
-
-  <p align="center">
-    A web scraping tool that can return data based on a specified structure!
-  </p>
+<a href="https://github.com/user/repo">
+<img src=".project-images/project-logo.png" alt="Logo" height="128px">
+</a>
+<h3 align="center">Web Scraper</h3>
+<p align="center">
+A web scraping tool that can return data based on a specified structure! 
+<br/>
+<br/>
+</p>
 </div>
 
+Table of Contents
 
-<!-- TABLE OF CONTENTS -->
-<details>
-  <summary>Table of Contents</summary>
-  <ol>
-    <li>
-      <a href="#about-the-project">About The Project</a>
-      <ul>
-        <li><a href="#built-with">Built With</a></li>
-      </ul>
-    </li>
-    <li><a href="#usage">Usage</a></li>
-  </ol>
-</details>
+- [About The Project](#about-the-project)
+  - [Built With](#built-with)
+- [Getting Started](#getting-started)
+  - [Installation](#installation)
+- [Usage](#usage)
 
-
-
-<!-- ABOUT THE PROJECT -->
 ## About The Project
-
 Web scraper built with Python using the Selenium and BeautifulSoup libraries. Its main function is to return an array of dictionaries structured in a specified way.
 
-<p align="right">(<a href="#readme-top">back to top</a>)</p>
-
-
-
 ### Built With
+This project was built with the following technologies:
+- <img src="https://img.shields.io/badge/Python-3776AB?logo=python&logoColor=fff" alt="Python" />
 
-* Python
-* Selenium
-* BeautifulSoup
+## Getting Started
+### Installation
+1. **Clone the repository** 
 
-<p align="right">(<a href="#readme-top">back to top</a>)</p>
+  ```sh
+  git clone --recurse-submodules https://github.com/venoblin/scripts
+  ```
 
-<!-- USAGE EXAMPLES -->
+2. **Create settings file (for [ezdownloadsorter](https://github.com/venoblin/download-file-sorter))**
+
+  ```sh
+  cd scripts
+  touch settings.json
+  ```
+
+1. **Modify `settings.json`** 
+
+  ```json
+  {
+    "downloads": "/path/to/Downloads",
+    "destinations": {
+      ".file-extension": "/path/to/destination",
+      ".file-extension": "/path/to/destination",
+      ".file-extension": "/path/to/destination"
+    }
+  }
+  ```
+
+4. **Install scripts** 
+  
+  ```sh
+  ./install.sh
+  ```
+
 ## Usage
-
-```python
-from web_scraper import WebScraper
-
-# instantiate class and pass in desired website
-scrape = WebScraper('https://www.jonweb.dev/')
-
-# desired structure with css selector where we can find that specified key
-project_structure = {
-  'title': '.title',
-  'technologies': '.techs p',
-  'description': '.desc',
-}
-
-# specify nearmost parent containg all of the above selectors and pass in structure dictionary
-results = scrape.get_table('.ProjectCard', project_structure)
-
-print(results)
-# [
-#  {
-#   'title': 'Flixder', 
-#   'technologies': ['React', 'SCSS', 'Node.js', 'Express', 'MongoDB'], 
-#   'description': 'Dating application for movies, find new movies to watch!'
-#  }, 
-#  {
-#   'title': 'Fit Buddy', 
-#   'technologies': ['Vue', 'SCSS'], 
-#   'description': 'An application used to set up your workout routine for the week!'
-#  }, 
-#  {
-#   'title': 'Tic-Tac-Toe', 
-#   'technologies': ['JavaScript', 'CSS'], 
-#   'description': 'Tic-Tac-Toe game made entirely with JavaScript.'
-#  }
-# ]
-```
-
-<p align="right">(<a href="#readme-top">back to top</a>)</p>
+Put usage examples here
