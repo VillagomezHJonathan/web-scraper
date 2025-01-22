@@ -28,37 +28,70 @@ This project was built with the following technologies:
 
 ## Getting Started
 ### Installation
-1. **Clone the repository** 
-
+1. **Clone the repository**
   ```sh
-  git clone --recurse-submodules https://github.com/venoblin/scripts
+  git clone git@github.com:venoblin/web-scraper.git
   ```
 
-2. **Create settings file (for [ezdownloadsorter](https://github.com/venoblin/download-file-sorter))**
-
+2. **Create virtual enviroment**
   ```sh
-  cd scripts
-  touch settings.json
+  python3 -m venv venv
   ```
 
-1. **Modify `settings.json`** 
-
-  ```json
-  {
-    "downloads": "/path/to/Downloads",
-    "destinations": {
-      ".file-extension": "/path/to/destination",
-      ".file-extension": "/path/to/destination",
-      ".file-extension": "/path/to/destination"
-    }
-  }
+3. **Activate virtual enviroment**
+  ```sh
+  python3 venv/bin/activate
   ```
 
-4. **Install scripts** 
-  
+4. **Install dependencies** 
   ```sh
-  ./install.sh
+  pip install -r requirements.txt
   ```
 
 ## Usage
-Put usage examples here
+1. **Create `scrape.py` file in the root directory of the project**
+   
+2. **In `scrapy.py` import `WebScraper`**
+  ```py
+  from web_scraper import WebScraper
+  ```
+
+3. **Instantiate class and pass in desired website**
+  ```py
+  scrape = WebScraper('https://www.jonweb.dev/')
+  ```
+
+4. **Define structure, the key acts as the name given to elements found with the value**
+  ```py
+  scrape_structure = {
+    'title': '.title',
+    'technologies': '.techs p',
+    'description': '.desc',
+  }
+  ```
+
+5. **Specify nearmost parent element containg all of the selectors in the structure and pass in structure dictionary**
+  ```py
+  results = scrape.get_table('.ProjectCard', project_structure)
+  ```
+
+```py
+print(results)
+# [
+#  {
+#   'title': 'Flixder', 
+#   'technologies': ['React', 'SCSS', 'Node.js', 'Express', 'MongoDB'], 
+#   'description': 'Dating application for movies, find new movies to watch!'
+#  }, 
+#  {
+#   'title': 'Fit Buddy', 
+#   'technologies': ['Vue', 'SCSS'], 
+#   'description': 'An application used to set up your workout routine for the week!'
+#  }, 
+#  {
+#   'title': 'Tic-Tac-Toe', 
+#   'technologies': ['JavaScript', 'CSS'], 
+#   'description': 'Tic-Tac-Toe game made entirely with JavaScript.'
+#  }
+# ]
+```
