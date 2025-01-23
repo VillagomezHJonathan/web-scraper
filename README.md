@@ -29,51 +29,51 @@ This project was built with the following technologies:
 ## Getting Started
 ### Installation
 1. **Clone the repository**
-  ```sh
-  git clone git@github.com:venoblin/web-scraper.git
-  ```
+    ```sh
+    git clone git@github.com:venoblin/web-scraper.git
+    ```
 
 2. **Create virtual enviroment**
-  ```sh
-  python3 -m venv venv
-  ```
+    ```sh
+    python3 -m venv venv
+    ```
 
 3. **Activate virtual enviroment**
-  ```sh
-  python3 venv/bin/activate
-  ```
+    ```sh
+    python3 venv/bin/activate
+    ```
 
 4. **Install dependencies** 
-  ```sh
-  pip install -r requirements.txt
-  ```
+    ```sh
+    pip install -r requirements.txt
+    ```
 
 ## Usage
 1. **Create `scrape.py` file in the root directory of the project**
    
 2. **In `scrapy.py` import `WebScraper`**
-  ```py
-  from web_scraper import WebScraper
-  ```
+    ```py
+    from web_scraper import WebScraper
+    ```
 
 3. **Instantiate class and pass in desired website**
-  ```py
-  scrape = WebScraper('https://www.jonweb.dev/')
-  ```
+    ```py
+    scrape = WebScraper('https://www.jonweb.dev/')
+    ```
 
 4. **Define structure, the key acts as the name given to elements found with the value**
-  ```py
-  scrape_structure = {
-    'title': '.title',
-    'technologies': '.techs p',
-    'description': '.desc',
-  }
-  ```
+    ```py
+    scrape_structure = {
+      'title': '.title',
+      'technologies': '.techs p',
+      'description': '.desc',
+    }
+    ```
 
 5. **Specify nearmost parent element containg all of the selectors in the structure and pass in structure dictionary**
-  ```py
-  results = scrape.get_table('.ProjectCard', project_structure)
-  ```
+    ```py
+    results = scrape.get_table('.ProjectCard', project_structure)
+    ```
 
 ```py
 print(results)
